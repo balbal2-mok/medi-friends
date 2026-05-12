@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메디프렌즈 · 여고생 약 가이드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Gaegu:wght@400;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ec;
+    --peach: #ffd6c2;
+    --coral: #ff8a7a;
+    --rose: #f4a8b5;
+    --mint: #b8e6d4;
+    --sage: #8ec5a8;
+    --lilac: #d4c1ed;
+    --lavender: #a89cc9;
+    --butter: #ffe9a8;
+    --ink: #3a2e2a;
+    --soft-ink: #6b5851;
+    --pill-shadow: 0 6px 0 rgba(58, 46, 42, 0.12), 0 12px 24px rgba(58, 46, 42, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Gowun Dodum', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Decorative background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(255, 214, 194, 0.4) 0%, transparent 25%),
+      radial-gradient(circle at 85% 70%, rgba(212, 193, 237, 0.35) 0%, transparent 25%),
+      radial-gradient(circle at 50% 90%, rgba(184, 230, 212, 0.3) 0%, transparent 20%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(58, 46, 42, 0.04) 1px, transparent 0);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    padding: 24px 0 40px;
+    position: relative;
+  }
+
+  .logo-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 10px 22px;
+    border-radius: 999px;
+    box-shadow: var(--pill-shadow);
+    margin-bottom: 20px;
+    transform: rotate(-2deg);
+  }
+
+  .logo-mark .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--coral), var(--rose));
+  }
+
+  .logo-mark span {
+    font-family: 'Gaegu', cursive;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: clamp(38px, 7vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  h1 .accent {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--coral);
+    position: relative;
+  }
+
+  h1 .accent::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: var(--butter);
+    z-index: -1;
+    border-radius: 4px;
+  }
+
+  .subtitle {
+    font-size: 17px;
+    color: var(--soft-ink);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Disclaimer banner */
+  .disclaimer {
+    margin: 32px auto;
+    max-width: 720px;
+    background: white;
+    border: 2px dashed var(--rose);
+    border-radius: 20px;
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+    color: var(--soft-ink);
+    line-height: 1.5;
+  }
+
+  .disclaimer .icon {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  /* Symptom selector */
+  .symptom-section {
+    margin-top: 40px;
+  }
+
+  .section-label {
+    font-family: 'Gaegu', cursive;
+    font-size: 16px;
+    color: var(--coral);
+    margin-bottom: 12px;
+    display: inline-block;
+    padding: 4px 14px;
+    background: white;
+    border-radius: 999px;
+    box-shadow: var(--pill-shadow);
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .symptom-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+
+  .symptom-btn {
+    background: white;
+    border: none;
+    border-radius: 22px;
+    padding: 22px 16px;
+    cursor: pointer;
+    box-shadow: var(--pill-shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .symptom-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--gradient-from, var(--peach)), var(--gradient-to, var(--rose)));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .symptom-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 0 rgba(58, 46, 42, 0.1), 0 18px 30px rgba(58, 46, 42, 0.1);
+  }
+
+  .symptom-btn.active {
+    transform: translateY(-3px);
+  }
+
+  .symptom-btn.active::before {
+    opacity: 1;
+  }
+
+  .symptom-btn .emoji {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .symptom-btn .name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    position: relative;
+    z-index: 1;
+  }
+
+  .symptom-btn.active .name {
+    color: white;
+  }
+
+  /* Content panel */
+  .content-panel {
+    display: none;
+    animation: fadeUp 0.5s ease;
+  }
+
+  .content-panel.active {
+    display: block;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .panel-header {
+    background: white;
+    border-radius: 28px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: var(--pill-shadow);
+    border-left: 8px solid var(--coral);
+  }
+
+  .panel-header h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .panel-header p {
+    color: var(--soft-ink);
+    line-height: 1.6;
+  }
+
+  /* Medicine cards */
+  .meds-section, .vitamin-section {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title .badge {
+    background: var(--butter);
+    color: var(--ink);
+    font-family: 'Gaegu', cursive;
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 700;
+  }
+
+  .meds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 16px;
+  }
+
+  .med-card {
+    background: white;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: var(--pill-shadow);
+    position: relative;
+    transition: transform 0.2s;
+  }
+
+  .med-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .med-card .pill-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 24px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, var(--pill-c1, var(--peach)) 50%, var(--pill-c2, var(--rose)) 50%);
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.08);
+  }
+
+  .med-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    margin-bottom: 4px;
+    padding-right: 60px;
+  }
+
+  .med-card .ingredient {
+    font-size: 12px;
+    color: var(--soft-ink);
+    margin-bottom: 14px;
+    font-family: 'Gaegu', cursive;
+  }
+
+  .med-info {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--soft-ink);
+  }
+
+  .med-info dt {
+    font-weight: 700;
+    color: var(--ink);
+    margin-top: 10px;
+    font-size: 13px;
+  }
+
+  .med-info dt:first-child {
+    margin-top: 0;
+  }
+
+  .cautions-list {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0 0;
+  }
+
+  .cautions-list li {
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    background: #faf6f3;
+    border-radius: 10px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--soft-ink);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    border-left: 3px solid #ffb39a;
+  }
+
+  .cautions-list li:last-child { margin-bottom: 0; }
+
+  .cautions-list li.ix-danger { border-left-color: #c63d4d; background: #fff5f6; }
+  .cautions-list li.ix-warn { border-left-color: #e08a3c; background: #fff8f0; }
+  .cautions-list li.ix-time { border-left-color: #5a9fc4; background: #f3f9fd; }
+  .cautions-list li.ix-food { border-left-color: #9c7bb5; background: #faf6fd; }
+  .cautions-list li.ix-tip { border-left-color: #5fa888; background: #f3faf6; }
+
+  .cautions-list .ix-tag {
+    flex-shrink: 0;
+    font-family: 'Gaegu', cursive;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 999px;
+    white-space: nowrap;
+    margin-top: 1px;
+    line-height: 1.4;
+  }
+
+  .cautions-list .ix-text { flex: 1; }
+  .cautions-list li strong { color: var(--ink); font-weight: 700; }
+
+  .warning-tag {
+    display: inline-block;
+    background: #ffe4e1;
+    color: #c63d4d;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 12px;
+    font-family: 'Gaegu', cursive;
+  }
+
+  /* Vitamin cards */
+  .vitamin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+
+  .vitamin-card {
+    background: linear-gradient(135deg, var(--vg1, var(--mint)) 0%, var(--vg2, var(--sage)) 100%);
+    border-radius: 22px;
+    padding: 22px;
+    color: var(--ink);
+    box-shadow: var(--pill-shadow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vitamin-card::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 50%;
+  }
+
+  .vitamin-card .vit-emoji {
+    font-size: 30px;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .vitamin-card h5 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    margin-bottom: 6px;
+    position: relative;
+  }
+
+  .vitamin-card .why {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .vitamin-card .sources {
+    font-size: 12px;
+    font-family: 'Gaegu', cursive;
+    background: rgba(255,255,255,0.5);
+    padding: 6px 10px;
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+  }
+
+  /* Share footer */
+  .share-section {
+    margin-top: 60px;
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 32px;
+    box-shadow: var(--pill-shadow);
+  }
+
+  .share-section h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .share-section p {
+    color: var(--soft-ink);
+    margin-bottom: 20px;
+  }
+
+  .share-btn {
+    background: var(--coral);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-family: 'Gaegu', cursive;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #c66459;
+    transition: all 0.15s;
+  }
+
+  .share-btn:hover {
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 #c66459;
+  }
+
+  .share-btn:active {
+    transform: translateY(6px);
+    box-shadow: 0 0 0 #c66459;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--soft-ink);
+    font-size: 13px;
+    font-family: 'Gaegu', cursive;
+  }
+
+  footer .heart { color: var(--coral); }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--soft-ink);
+  }
+
+  .empty-state .big-emoji {
+    font-size: 60px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .empty-state p {
+    font-family: 'Gaegu', cursive;
+    font-size: 18px;
+  }
+
+  /* Safety section */
+  .safety-section {
+    margin: 48px 0;
+    padding: 32px 28px;
+    background: linear-gradient(135deg, #fff5f3 0%, #fff9ed 100%);
+    border-radius: 32px;
+    border: 2px solid #ffd6c2;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .safety-section::before {
+    content: '⚕';
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-size: 200px;
+    color: rgba(255, 138, 122, 0.06);
+    font-family: serif;
+    pointer-events: none;
+  }
+
+  .safety-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    position: relative;
+  }
+
+  .safety-card {
+    background: white;
+    border-radius: 20px;
+    padding: 22px 20px 20px;
+    box-shadow: var(--pill-shadow);
+    position: relative;
+    border-top: 6px solid;
+    transition: transform 0.2s;
+  }
+
+  .safety-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .safety-card.danger { border-top-color: #c63d4d; }
+  .safety-card.warn { border-top-color: #e08a3c; }
+  .safety-card.info { border-top-color: #5a9fc4; }
+
+  .safety-card .safety-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--soft-ink);
+    opacity: 0.5;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+
+  .safety-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .safety-card.danger h4 { color: #c63d4d; }
+  .safety-card.warn h4 { color: #b86a2c; }
+  .safety-card.info h4 { color: #3a7da0; }
+
+  .safety-card p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--soft-ink);
+  }
+
+  .safety-card .hl {
+    background: var(--butter);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* Per-symptom interaction warning box */
+  .interaction-box {
+    margin-top: 20px;
+    background: #fff5f3;
+    border: 2px solid #ffb39a;
+    border-radius: 22px;
+    padding: 22px 24px;
+    position: relative;
+  }
+
+  .interaction-box::before {
+    content: '⚠';
+    position: absolute;
+    top: -14px;
+    left: 22px;
+    background: #ff8a7a;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .interaction-box h5 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    color: #c63d4d;
+    margin: 4px 0 14px 36px;
+  }
+
+  .interaction-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .interaction-box li {
+    padding: 12px 14px 12px 14px;
+    margin-bottom: 8px;
+    background: white;
+    border-radius: 14px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--soft-ink);
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    border-left: 4px solid #ffb39a;
+  }
+
+  .interaction-box li.ix-danger { border-left-color: #c63d4d; background: #fff5f6; }
+  .interaction-box li.ix-warn { border-left-color: #e08a3c; background: #fff8f0; }
+  .interaction-box li.ix-time { border-left-color: #5a9fc4; background: #f3f9fd; }
+  .interaction-box li.ix-food { border-left-color: #9c7bb5; background: #faf6fd; }
+  .interaction-box li.ix-tip { border-left-color: #5fa888; background: #f3faf6; }
+
+  .ix-tag {
+    flex-shrink: 0;
+    font-family: 'Gaegu', cursive;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+
+  .tag-danger { background: #ffe0e3; color: #c63d4d; }
+  .tag-warn { background: #ffeed6; color: #b86a2c; }
+  .tag-time { background: #d9ecf7; color: #3a7da0; }
+  .tag-food { background: #ebe0f5; color: #6b4a8a; }
+  .tag-tip { background: #d9f0e3; color: #3d7a5a; }
+
+  .ix-text {
+    flex: 1;
+  }
+
+  .interaction-box li strong {
+    color: var(--ink);
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="logo-mark">
+      <div class="dot"></div>
+      <span>MEDI · FRIENDS</span>
+    </div>
+    <h1>우리끼리<br>알아두는 <span class="accent">약 가이드</span></h1>
+    <p class="subtitle">생리통, 두통, 감기… 자주 먹는 약 제대로 알고 먹자!<br>증상별 비타민 추천까지 한눈에 ✦</p>
+  </header>
+
+  <div class="disclaimer">
+    <span class="icon">💌</span>
+    <span><strong>꼭 읽어줘!</strong> 이 정보는 일반적인 안내야. 증상이 심하거나 지속되면 꼭 약사·의사 선생님과 상담하기! 약 알레르기나 지병이 있으면 더더욱 ✿</span>
+  </div>
+
+  <section class="symptom-section">
+    <span class="section-label">STEP 01</span>
+    <h2>오늘 어디가 불편해?</h2>
+    <div class="symptom-grid" id="symptomGrid"></div>
+  </section>
+
+  <div id="emptyState" class="empty-state">
+    <span class="big-emoji">🌷</span>
+    <p>증상을 골라봐!</p>
+  </div>
+
+  <div id="contentArea"></div>
+
+  <div class="share-section">
+    <h3>친구한테도 알려주기 🌸</h3>
+    <p>이 가이드를 친구들과 공유해보자!</p>
+    <button class="share-btn" onclick="shareApp()">📋 링크 복사하기</button>
+  </div>
+
+  <footer>
+    <p>made with <span class="heart">♥</span> for my friends</p>
+  </footer>
+</div>
+
+<script>
+const data = {
+  period: {
+    name: '생리통',
+    emoji: '🌷',
+    gradient: ['#ffb3ba', '#ff8a7a'],
+    description: '생리통은 자궁이 수축하면서 생기는 통증이야. 진통제는 통증이 시작되자마자 먹는 게 가장 효과적이래!',
+    meds: [
+      {
+        name: '이지엔6 프로',
+        ingredient: '덱시부프로펜 300mg',
+        pillColor: ['#ffd6c2', '#ff8a7a'],
+        usage: '식후 30분, 1정씩 (8시간 간격)',
+        feature: '일반 이부프로펜보다 위에 덜 부담돼서 공복에 비교적 안전. 효과 빠른 편!',
+        cautions: [
+          { tag: 'danger', text: '<strong>탁센·이부프로펜·아스피린과 동시 X</strong> — 같은 NSAIDs 계열, 위출혈·신장 손상 위험' },
+          { tag: 'food', text: '<strong>식후 30분 복용</strong> — 위장 자극 줄이기' },
+          { tag: 'food', text: '<strong>술과 함께 X</strong> — 위출혈 위험 폭증' },
+          { tag: 'tip', text: '<strong>통증 시작될 때 바로 ◎</strong> — 참다가 먹으면 효과 ↓' }
+        ]
+      },
+      {
+        name: '탁센레이디',
+        ingredient: '나프록센 250mg',
+        pillColor: ['#f4a8b5', '#d97a8a'],
+        usage: '하루 2회, 12시간 간격',
+        feature: '지속시간 길어서 학교에서 자주 못 먹을 때 좋아. 생리통 전용 처방감!',
+        cautions: [
+          { tag: 'danger', text: '<strong>다른 NSAIDs(이지엔·이부프로펜)와 X</strong> — 중복 시 신장·위장 손상' },
+          { tag: 'food', text: '<strong>공복 복용 절대 X</strong> — 꼭 식후에' },
+          { tag: 'time', text: '<strong>12시간 간격 엄수</strong> — 지속시간 긴 약이라 자주 먹으면 누적' },
+          { tag: 'warn', text: '<strong>위염·천식 있으면 신중히</strong> — 약사 상담 권장' }
+        ]
+      },
+      {
+        name: '우먼스타이레놀',
+        ingredient: '아세트아미노펜 500mg + 파마브롬',
+        pillColor: ['#ffe9a8', '#ffd06b'],
+        usage: '4~6시간 간격, 1회 1정',
+        feature: '위장 부담 적음. 부종 완화 성분(파마브롬) 포함. 위가 약한 친구한테 추천!',
+        cautions: [
+          { tag: 'danger', text: '<strong>다른 타이레놀·게보린·펜잘 X</strong> — 아세트아미노펜 중복 → 간 손상' },
+          { tag: 'danger', text: '<strong>술과 절대 X</strong> — 간 독성 폭증' },
+          { tag: 'warn', text: '<strong>하루 4g(8정) 초과 금지</strong>' },
+          { tag: 'warn', text: '<strong>종합감기약과 X</strong> — 감기약에 이미 아세트아미노펜 있음' }
+        ]
+      },
+      {
+        name: '게보린/펜잘',
+        ingredient: '아세트아미노펜 + 카페인 등 복합',
+        pillColor: ['#d4c1ed', '#a89cc9'],
+        usage: '4시간 간격, 1정',
+        feature: '카페인 들어가서 두통 동반될 때 좋음. 단 카페인 민감하면 비추.',
+        cautions: [
+          { tag: 'danger', text: '<strong>게보린 + 펜잘 X</strong> — 성분 거의 동일, 중복' },
+          { tag: 'danger', text: '<strong>타이레놀과 X</strong> — 아세트아미노펜 중복' },
+          { tag: 'warn', text: '<strong>커피·에너지드링크와 X</strong> — 카페인 중복, 두근거림·불면' },
+          { tag: 'tip', text: '<strong>늦은 시간 복용 X</strong> — 카페인 때문에 잠 안 옴' }
+        ]
+      }
+    ],
+    vitamins: [
+      { emoji: '🌿', name: '마그네슘', why: '자궁근육 이완에 도움. 생리 1주 전부터 챙기면 통증 완화 효과!', sources: '아몬드, 시금치, 다크초콜릿', g: ['#b8e6d4', '#8ec5a8'] },
+      { emoji: '🐟', name: '오메가-3', why: '염증성 프로스타글란딘을 줄여줘서 생리통 완화에 좋아.', sources: '연어, 들기름, 호두', g: ['#ffd6c2', '#ffb39a'] },
+      { emoji: '☀️', name: '비타민 D', why: '호르몬 균형과 근육 통증 완화에 도움. 생리 전 증후군에도 효과적.', sources: '햇볕 15분, 달걀노른자', g: ['#ffe9a8', '#ffd06b'] },
+      { emoji: '🥦', name: '비타민 B6', why: 'PMS(예민함, 부종)에 특히 좋아. 호르몬 대사 도와줌.', sources: '바나나, 닭가슴살, 감자', g: ['#d4c1ed', '#a89cc9'] }
+    ]
+  },
+  headache: {
+    name: '두통',
+    emoji: '💫',
+    gradient: ['#d4c1ed', '#a89cc9'],
+    description: '두통은 원인이 다양해. 스트레스성·긴장성·편두통에 따라 약을 골라야 해. 카페인 금단으로 오는 두통도 많아!',
+    meds: [
+      {
+        name: '타이레놀500',
+        ingredient: '아세트아미노펜 500mg',
+        pillColor: ['#ffe9a8', '#ffd06b'],
+        usage: '4~6시간 간격, 1정',
+        feature: '위장 부담 적고 안전한 편. 가벼운 두통의 1순위!',
+        cautions: [
+          { tag: 'danger', text: '<strong>게보린·펜잘·종합감기약과 X</strong> — 아세트아미노펜 중복 → 간 손상' },
+          { tag: 'danger', text: '<strong>술과 절대 X</strong> — 간 독성 폭증' },
+          { tag: 'warn', text: '<strong>하루 4g(8정) 초과 금지</strong>' },
+          { tag: 'tip', text: '<strong>가장 안전한 진통제</strong> — 위가 약하거나 처음 먹는 친구한테 1순위' }
+        ]
+      },
+      {
+        name: '게보린',
+        ingredient: '아세트아미노펜+이소프로필안티피린+카페인',
+        pillColor: ['#ffd6c2', '#ff8a7a'],
+        usage: '4시간 간격, 1정',
+        feature: '카페인이 들어서 진통 효과 강함. 빠르게 잡고 싶을 때.',
+        cautions: [
+          { tag: 'danger', text: '<strong>15세 미만 금지</strong> — 청소년 복용 시 신중히' },
+          { tag: 'danger', text: '<strong>펜잘·타이레놀과 X</strong> — 아세트아미노펜 중복' },
+          { tag: 'warn', text: '<strong>커피·에너지드링크와 X</strong> — 카페인 중복' },
+          { tag: 'warn', text: '<strong>자주 X</strong> — 매일 먹으면 약물 과용 두통 유발' }
+        ]
+      },
+      {
+        name: '펜잘큐',
+        ingredient: '아세트아미노펜+에텐자미드+무수카페인',
+        pillColor: ['#f4a8b5', '#d97a8a'],
+        usage: '4시간 간격, 1정',
+        feature: '복합 진통제. 긴장성 두통이나 생리통에도 효과 좋음.',
+        cautions: [
+          { tag: 'danger', text: '<strong>게보린·타이레놀과 X</strong> — 아세트아미노펜 중복' },
+          { tag: 'food', text: '<strong>공복 복용 피하기</strong> — 식후 30분이 좋음' },
+          { tag: 'warn', text: '<strong>카페인 음료와 X</strong> — 두근거림·불면' }
+        ]
+      },
+      {
+        name: '이지엔6 애니',
+        ingredient: '이부프로펜 200mg',
+        pillColor: ['#b8e6d4', '#8ec5a8'],
+        usage: '6~8시간 간격, 1정',
+        feature: '염증성 두통에 좋음. 편두통 초기에 효과적!',
+        cautions: [
+          { tag: 'danger', text: '<strong>다른 NSAIDs와 X</strong> — 탁센·아스피린 등과 동시 복용 금지' },
+          { tag: 'food', text: '<strong>위 약하면 식후</strong> — 빈속 복용 시 위염 위험' },
+          { tag: 'time', text: '<strong>위장약(겔포스)과 1시간 간격</strong>' },
+          { tag: 'tip', text: '<strong>편두통 초기에 빨리</strong> — 통증 심해지기 전 복용이 효과 ↑' }
+        ]
+      }
+    ],
+    vitamins: [
+      { emoji: '🌰', name: '마그네슘', why: '편두통 예방과 혈관 안정에 도움. 미국 두통학회도 권장!', sources: '견과류, 두부, 바나나', g: ['#b8e6d4', '#8ec5a8'] },
+      { emoji: '💧', name: '수분 + 전해질', why: '탈수는 두통의 흔한 원인. 하루 1.5L 이상 물 마시기!', sources: '물, 이온음료, 코코넛워터', g: ['#c2e0f4', '#7ab5d4'] },
+      { emoji: '🌾', name: '비타민 B2(리보플라빈)', why: '편두통 빈도 줄이는 효과 연구로 입증됨.', sources: '계란, 우유, 아몬드', g: ['#ffe9a8', '#ffd06b'] },
+      { emoji: '☘️', name: 'CoQ10', why: '미토콘드리아 기능 도와서 만성 두통에 좋음.', sources: '소고기, 정어리, 영양제', g: ['#d4c1ed', '#a89cc9'] }
+    ]
+  },
+  cold: {
+    name: '감기',
+    emoji: '🤧',
+    gradient: ['#b8e6d4', '#8ec5a8'],
+    description: '감기는 증상별로 약을 골라야 해! 콧물·기침·열·인후통이 다 다른 약이라는 거 알아둬.',
+    meds: [
+      {
+        name: '판콜에이/판피린',
+        ingredient: '아세트아미노펜+클로르페니라민+카페인 외',
+        pillColor: ['#ffd6c2', '#ff8a7a'],
+        usage: '하루 3회, 식후 30분',
+        feature: '종합감기약. 콧물·재채기·열·통증 한번에. 졸릴 수 있음.',
+        cautions: [
+          { tag: 'danger', text: '<strong>타이레놀·게보린·펜잘과 X</strong> — 아세트아미노펜 중복' },
+          { tag: 'danger', text: '<strong>다른 종합감기약(콜드-S)과 X</strong> — 성분 중복' },
+          { tag: 'warn', text: '<strong>운전·시험 전 X</strong> — 1세대 항히스타민이라 졸음 유발' },
+          { tag: 'warn', text: '<strong>수면제·멀미약과 X</strong> — 진정 효과 폭증' }
+        ]
+      },
+      {
+        name: '코나정/지르텍',
+        ingredient: '세티리진(2세대 항히스타민)',
+        pillColor: ['#b8e6d4', '#8ec5a8'],
+        usage: '하루 1정 (저녁)',
+        feature: '콧물·재채기 전용. 졸음 적은 2세대라 학교에서도 OK.',
+        cautions: [
+          { tag: 'tip', text: '<strong>학교 가는 날 GOOD</strong> — 졸음 적어서 시험기간에도 OK' },
+          { tag: 'warn', text: '<strong>입마름 가능</strong> — 물 자주 마시기' },
+          { tag: 'time', text: '<strong>저녁 복용 추천</strong> — 약효 24시간 지속' }
+        ]
+      },
+      {
+        name: '뮤코펙트/뮤테란',
+        ingredient: '암브록솔 / 아세틸시스테인',
+        pillColor: ['#ffe9a8', '#ffd06b'],
+        usage: '하루 3회, 식후',
+        feature: '가래 묽게 만들어줌. 끈적한 가래 기침에 효과적!',
+        cautions: [
+          { tag: 'danger', text: '<strong>기침억제제와 X</strong> — 가래는 묽어지는데 기침을 막으면 가래가 고임' },
+          { tag: 'food', text: '<strong>물 많이 마시기</strong> — 가래 배출 도와줌' },
+          { tag: 'tip', text: '<strong>마른기침엔 X</strong> — 가래 있을 때만 효과' }
+        ]
+      },
+      {
+        name: '스트렙실/베타딘 인후스프레이',
+        ingredient: '국소 소독·소염 성분',
+        pillColor: ['#f4a8b5', '#d97a8a'],
+        usage: '2~3시간 간격',
+        feature: '목 아플 때 직접 작용. 학교 가방에 하나씩!',
+        cautions: [
+          { tag: 'warn', text: '<strong>하루 8회 이하</strong> — 너무 자주 X' },
+          { tag: 'tip', text: '<strong>가방 필수템</strong> — 학교에서 목 칼칼할 때' },
+          { tag: 'warn', text: '<strong>요오드 알레르기 주의</strong> — 베타딘은 요오드 함유' }
+        ]
+      },
+      {
+        name: '타이레놀 콜드-S',
+        ingredient: '아세트아미노펜+슈도에페드린+클로르페니라민',
+        pillColor: ['#d4c1ed', '#a89cc9'],
+        usage: '6시간 간격, 1정',
+        feature: '코막힘+열+통증 동시에 잡고 싶을 때. 비강 시원해짐.',
+        cautions: [
+          { tag: 'danger', text: '<strong>판콜에이·다른 감기약과 X</strong> — 성분 중복' },
+          { tag: 'danger', text: '<strong>카페인 음료와 X</strong> — 슈도에페드린+카페인은 심박↑' },
+          { tag: 'warn', text: '<strong>심장 두근거리면 중단</strong>' },
+          { tag: 'warn', text: '<strong>고혈압·갑상선 질환자 X</strong>' }
+        ]
+      }
+    ],
+    vitamins: [
+      { emoji: '🍊', name: '비타민 C', why: '감기 기간을 약 14% 단축한다는 연구. 면역 세포 활성!', sources: '오렌지, 키위, 파프리카', g: ['#ffd6c2', '#ffb39a'] },
+      { emoji: '🦪', name: '아연(Zinc)', why: '감기 초기 24시간 내 복용하면 기간 단축. 목 아플 때 특히 GOOD.', sources: '굴, 소고기, 호박씨', g: ['#b8e6d4', '#8ec5a8'] },
+      { emoji: '☀️', name: '비타민 D', why: '결핍되면 감기 잘 걸려. 겨울철 꼭 챙기기!', sources: '햇볕, 연어, 영양제', g: ['#ffe9a8', '#ffd06b'] },
+      { emoji: '🍯', name: '프로폴리스/꿀', why: '항균·항염 작용. 목 아플 때 꿀물 따뜻하게 마시기!', sources: '천연꿀, 프로폴리스 스프레이', g: ['#ffd6c2', '#ff8a7a'] }
+    ]
+  },
+  stomach: {
+    name: '소화불량',
+    emoji: '🍵',
+    gradient: ['#ffe9a8', '#ffd06b'],
+    description: '시험 기간 폭식, 매운 떡볶이 후 속쓰림… 소화제도 종류별로 다르니까 골라 먹기!',
+    meds: [
+      {
+        name: '훼스탈/베아제',
+        ingredient: '판크레아틴 등 소화효소',
+        pillColor: ['#ffe9a8', '#ffd06b'],
+        usage: '식후 즉시 1~2정',
+        feature: '소화효소제. 기름진 음식·과식했을 때 GOOD.',
+        cautions: [
+          { tag: 'warn', text: '<strong>돼지 알레르기 주의</strong> — 판크레아틴은 돼지 유래' },
+          { tag: 'tip', text: '<strong>식후 즉시 복용</strong> — 음식과 만나야 효과' },
+          { tag: 'warn', text: '<strong>씹지 말고 삼키기</strong> — 입 안에서 녹으면 효소 비활성화' }
+        ]
+      },
+      {
+        name: '겔포스/알마겔',
+        ingredient: '제산제 (수산화알루미늄 등)',
+        pillColor: ['#b8e6d4', '#8ec5a8'],
+        usage: '식후 1~2시간 또는 속쓰릴 때',
+        feature: '속쓰림·신물 올라올 때. 액상이라 빠르게 작용.',
+        cautions: [
+          { tag: 'time', text: '<strong>다른 약과 2시간 간격</strong> — 진통제·항생제·비타민 흡수 방해' },
+          { tag: 'danger', text: '<strong>겔포스 + 알마겔 X</strong> — 같은 제산 성분 중복' },
+          { tag: 'warn', text: '<strong>장기 복용 X</strong> — 변비·미네랄 불균형 유발' }
+        ]
+      },
+      {
+        name: '가스활명수',
+        ingredient: '생약 복합제',
+        pillColor: ['#ffd6c2', '#ff8a7a'],
+        usage: '필요 시 1병',
+        feature: '체했을 때, 어지럽고 메스꺼울 때 클래식.',
+        cautions: [
+          { tag: 'warn', text: '<strong>하루 3병 이하</strong>' },
+          { tag: 'warn', text: '<strong>카페인 약과 X</strong> — 가스활명수도 카페인 함유' },
+          { tag: 'tip', text: '<strong>체했을 때 1순위</strong> — 어지럽고 메슥거릴 때' }
+        ]
+      },
+      {
+        name: '훼스토민/스멕타',
+        ingredient: '디옥타헤드랄스멕타이트',
+        pillColor: ['#d4c1ed', '#a89cc9'],
+        usage: '하루 3회',
+        feature: '설사·장염에. 장 점막 보호하면서 독소 흡착.',
+        cautions: [
+          { tag: 'time', text: '<strong>다른 약과 1~2시간 간격</strong> — 약을 흡착해버려 효과 ↓' },
+          { tag: 'warn', text: '<strong>식중독 의심 시 신중히</strong> — 독소를 가둘 수 있어 24시간은 두고 보기' },
+          { tag: 'food', text: '<strong>물 충분히 마시기</strong> — 설사로 인한 탈수 방지' }
+        ]
+      }
+    ],
+    vitamins: [
+      { emoji: '🦠', name: '프로바이오틱스', why: '장내 환경 개선. 변비·설사 둘 다 도움!', sources: '요거트, 김치, 유산균 제품', g: ['#b8e6d4', '#8ec5a8'] },
+      { emoji: '🫚', name: '생강', why: '메스꺼움·구토 완화. 따뜻한 생강차 추천.', sources: '생강차, 생강편', g: ['#ffe9a8', '#ffd06b'] },
+      { emoji: '🍵', name: '페퍼민트', why: '위장 평활근 이완. 식후 속 더부룩할 때.', sources: '페퍼민트 차', g: ['#b8e6d4', '#8ec5a8'] },
+      { emoji: '🌿', name: '식이섬유', why: '장 운동 도와줌. 변비 예방에 필수!', sources: '고구마, 사과, 귀리', g: ['#ffd6c2', '#ffb39a'] }
+    ]
+  },
+  fatigue: {
+    name: '피로/스트레스',
+    emoji: '🌙',
+    gradient: ['#d4c1ed', '#a89cc9'],
+    description: '시험 기간, 야자 후 만성피로… 약보다 영양제와 수면이 진짜 답! 그래도 도움될 만한 것들.',
+    meds: [
+      {
+        name: '아로나민골드',
+        ingredient: '활성형 비타민 B군 복합',
+        pillColor: ['#ffe9a8', '#ffd06b'],
+        usage: '하루 1정, 식후',
+        feature: '에너지 대사 도와줌. 만성피로·집중력 저하에 좋아.',
+        cautions: [
+          { tag: 'danger', text: '<strong>삐콤씨와 X</strong> — 둘 다 B군 복합제, 비타민 과잉' },
+          { tag: 'time', text: '<strong>오전 복용 추천</strong> — 저녁에 먹으면 잠 안 옴' },
+          { tag: 'tip', text: '<strong>소변 노래져도 정상</strong> — B2 색깔, 걱정 X' }
+        ]
+      },
+      {
+        name: '삐콤씨/베로카',
+        ingredient: '비타민 B + C 복합',
+        pillColor: ['#ffd6c2', '#ff8a7a'],
+        usage: '하루 1회',
+        feature: '발포정이라 음료처럼 마실 수 있어. 시험기간 인기!',
+        cautions: [
+          { tag: 'danger', text: '<strong>아로나민과 X</strong> — B군 중복' },
+          { tag: 'danger', text: '<strong>에너지드링크와 X</strong> — 카페인 중복으로 심장 부담' },
+          { tag: 'time', text: '<strong>저녁 늦게 X</strong> — 각성 효과로 불면' }
+        ]
+      },
+      {
+        name: '판토에이',
+        ingredient: '판토텐산칼슘 등',
+        pillColor: ['#b8e6d4', '#8ec5a8'],
+        usage: '하루 1~2회',
+        feature: '스트레스성 피로에. 부신 기능 도와줘.',
+        cautions: [
+          { tag: 'tip', text: '<strong>꾸준히 먹어야 효과</strong> — 최소 2~4주 복용' },
+          { tag: 'warn', text: '<strong>영양제는 보조일 뿐</strong> — 수면 7시간이 진짜 답!' }
+        ]
+      }
+    ],
+    vitamins: [
+      { emoji: '⚡', name: '비타민 B 복합', why: '에너지 생성의 핵심. 피로 회복 1순위!', sources: '돼지고기, 현미, 계란', g: ['#ffe9a8', '#ffd06b'] },
+      { emoji: '🩸', name: '철분', why: '특히 여학생은 생리로 부족해지기 쉬워. 빈혈성 피로에 필수.', sources: '소고기, 시금치, 콩', g: ['#ffd6c2', '#ff8a7a'] },
+      { emoji: '🌊', name: '마그네슘', why: '신경 안정·근육 이완. 잘 못 잘 때도 도움.', sources: '아몬드, 다크초콜릿', g: ['#b8e6d4', '#8ec5a8'] },
+      { emoji: '🌙', name: '비타민 D + 오메가-3', why: '기분과 집중력에 영향. 우울감 있을 때 챙기기.', sources: '연어, 햇볕', g: ['#d4c1ed', '#a89cc9'] }
+    ]
+  },
+  acne: {
+    name: '여드름/피부',
+    emoji: '🌸',
+    gradient: ['#ffd6c2', '#ff8a7a'],
+    description: '호르몬·스트레스·식습관이 원인. 심하면 피부과 꼭! 가벼운 건 OTC로 관리 가능.',
+    meds: [
+      {
+        name: '에피듀오 (의사처방)',
+        ingredient: '아다팔렌+과산화벤조일',
+        pillColor: ['#ffd6c2', '#ff8a7a'],
+        usage: '저녁 세안 후 얇게',
+        feature: '여드름 표준치료. 피부과 꼭 방문!',
+        cautions: [
+          { tag: 'danger', text: '<strong>임신 절대 X</strong> — 레티노이드 기형 위험' },
+          { tag: 'danger', text: '<strong>비타민A 영양제와 X</strong> — 비타민A 과잉' },
+          { tag: 'warn', text: '<strong>자외선 차단 SPF50 필수</strong> — 광민감성 ↑' },
+          { tag: 'warn', text: '<strong>필링·과각질 제거제와 X</strong> — 자극 두 배' },
+          { tag: 'tip', text: '<strong>저녁에만 도포</strong> — 햇빛에 약함' }
+        ]
+      },
+      {
+        name: '베포텐/마데카솔',
+        ingredient: '센텔라아시아티카 등',
+        pillColor: ['#b8e6d4', '#8ec5a8'],
+        usage: '하루 2~3회 부분 도포',
+        feature: '여드름 흉터·붉은기 진정에 GOOD.',
+        cautions: [
+          { tag: 'tip', text: '<strong>여드름 짠 자리에 ◎</strong> — 흉터 예방' },
+          { tag: 'tip', text: '<strong>붉은기 진정 효과</strong> — 가라앉히는 용도' }
+        ]
+      },
+      {
+        name: '클린앤클리어/아크넥스',
+        ingredient: '살리실산 / 과산화벤조일',
+        pillColor: ['#ffe9a8', '#ffd06b'],
+        usage: '국소 도포',
+        feature: '초기 좁쌀여드름에 효과. OTC라 약국에서 바로!',
+        cautions: [
+          { tag: 'warn', text: '<strong>건조함 유발</strong> — 보습제 꼭 함께' },
+          { tag: 'warn', text: '<strong>옷·수건 표백</strong> — 과산화벤조일이 흰색으로 만듦' },
+          { tag: 'warn', text: '<strong>자외선 차단 필수</strong>' },
+          { tag: 'tip', text: '<strong>4주 차도 없으면 피부과</strong>' }
+        ]
+      }
+    ],
+    vitamins: [
+      { emoji: '🥑', name: '아연', why: '피지 분비 조절·항염 작용. 여드름의 베프!', sources: '굴, 호박씨, 견과류', g: ['#b8e6d4', '#8ec5a8'] },
+      { emoji: '🐟', name: '오메가-3', why: '염증 줄여서 붉은 여드름 진정.', sources: '연어, 들기름', g: ['#d4c1ed', '#a89cc9'] },
+      { emoji: '☀️', name: '비타민 A', why: '피부 턴오버 정상화. 단 임신 시 주의.', sources: '당근, 시금치, 달걀', g: ['#ffd6c2', '#ffb39a'] },
+      { emoji: '🦠', name: '프로바이오틱스', why: '장 건강 = 피부 건강. 변비 있으면 피부 안 좋아짐.', sources: '요거트, 김치', g: ['#ffe9a8', '#ffd06b'] }
+    ]
+  }
+};
+
+const symptomGrid = document.getElementById('symptomGrid');
+const contentArea = document.getElementById('contentArea');
+const emptyState = document.getElementById('emptyState');
+
+function tagLabel(tag) {
+  return {
+    danger: '🚫 금지',
+    warn: '⚠️ 주의',
+    time: '⏱ 간격',
+    food: '🍽 음식',
+    tip: '💡 TIP'
+  }[tag] || '⚠️';
+}
+
+// Build symptom buttons
+Object.entries(data).forEach(([key, info]) => {
+  const btn = document.createElement('button');
+  btn.className = 'symptom-btn';
+  btn.dataset.key = key;
+  btn.style.setProperty('--gradient-from', info.gradient[0]);
+  btn.style.setProperty('--gradient-to', info.gradient[1]);
+  btn.innerHTML = `
+    <span class="emoji">${info.emoji}</span>
+    <span class="name">${info.name}</span>
+  `;
+  btn.addEventListener('click', () => selectSymptom(key));
+  symptomGrid.appendChild(btn);
+});
+
+function selectSymptom(key) {
+  const info = data[key];
+  document.querySelectorAll('.symptom-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.key === key);
+  });
+  emptyState.style.display = 'none';
+
+  contentArea.innerHTML = `
+    <div class="content-panel active">
+      <div class="panel-header" style="border-left-color: ${info.gradient[1]}">
+        <h3>${info.emoji} ${info.name}</h3>
+        <p>${info.description}</p>
+      </div>
+
+      <section class="meds-section">
+        <h4 class="section-title">💊 자주 먹는 약 <span class="badge">${info.meds.length}종</span></h4>
+        <div class="meds-grid">
+          ${info.meds.map(m => `
+            <div class="med-card">
+              <div class="pill-icon" style="--pill-c1:${m.pillColor[0]}; --pill-c2:${m.pillColor[1]}"></div>
+              <h4>${m.name}</h4>
+              <div class="ingredient">${m.ingredient}</div>
+              <dl class="med-info">
+                <dt>💊 복용법</dt>
+                <dd>${m.usage}</dd>
+                <dt>✨ 특징</dt>
+                <dd>${m.feature}</dd>
+                <dt>⚠️ 유의점</dt>
+                <dd>
+                  <ul class="cautions-list">
+                    ${m.cautions.map(c => `
+                      <li class="ix-${c.tag}">
+                        <span class="ix-tag tag-${c.tag}">${tagLabel(c.tag)}</span>
+                        <span class="ix-text">${c.text}</span>
+                      </li>
+                    `).join('')}
+                  </ul>
+                </dd>
+              </dl>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+
+      <section class="vitamin-section">
+        <h4 class="section-title">🌱 추천 비타민·영양제 <span class="badge">${info.vitamins.length}가지</span></h4>
+        <div class="vitamin-grid">
+          ${info.vitamins.map(v => `
+            <div class="vitamin-card" style="--vg1:${v.g[0]}; --vg2:${v.g[1]}">
+              <div class="vit-emoji">${v.emoji}</div>
+              <h5>${v.name}</h5>
+              <p class="why">${v.why}</p>
+              <div class="sources">📍 ${v.sources}</div>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    </div>
+  `;
+
+  contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function shareApp() {
+  const url = window.location.href;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => {
+      alert('링크가 복사됐어! 친구한테 보내주기 💕');
+    }).catch(() => {
+      alert('이 페이지 주소를 친구한테 공유해줘 💕');
+    });
+  } else {
+    alert('이 페이지 주소를 친구한테 공유해줘 💕');
+  }
+}
+</script>
+
+</body>
+</html>
